@@ -1,0 +1,223 @@
+@import "variables";
+@import "mixins/flex";
+
+body {
+  background-color: $black;
+  color: $white;
+  overflow-x: hidden;
+}
+
+.header {
+  @include flex(flex, row, space-between, center, 0);
+  padding: 1.5rem 0.75rem;
+
+  &__logo {
+    font-family: $crimson-pro-font;
+    font-weight: $weight-200;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    border: 0.0625rem solid $white;
+    padding: 0.5rem;
+
+    animation: color infinite 3s;
+  }
+
+  &__hamburguer,
+  &__close {
+    filter: invert(100%);
+    width: 1.8125rem;
+    cursor: pointer;
+    display: none;
+    visibility: hidden;
+  }
+
+  &__list {
+    @include flex(flex, row, space-between, center, 6.25rem);
+    font-family: $montserrat-font;
+    font-weight: $weight-700;
+  }
+
+  &__item {
+    transition: border-bottom 0.2s ease-out;
+
+    border: 6px solid transparent;
+
+    &:hover {
+      border-bottom: 0.625rem solid rgba(255, 255, 255, 0.7);
+    }
+  }
+}
+
+.principal {
+  padding: 1.75rem 0.75rem;
+
+  &__title {
+    padding-bottom: 1.375rem;
+    font-family: $lora-font;
+    font-weight: $weight-500;
+    font-size: 2.25rem;
+  }
+
+  &__description {
+    font-size: $montserrat-font;
+    font-weight: $weight-400;
+    font-size: 0.875rem;
+    margin-right: 9.375rem;
+    line-height: 1.125rem;
+  }
+
+  &__btn {
+    @include flex(flex, row-reverse, center, center, 0.625rem);
+    padding: 1rem 0.75rem;
+    margin-top: 1.875rem;
+    font-weight: $weight-700;
+    cursor: pointer;
+    background-color: $white;
+    color: $black;
+    border-radius: 0.5rem;
+    border: 0.0625rem solid transparent;
+    transition: all 0.2s ease-out;
+    animation: float infinite 2s;
+
+    @keyframes float {
+      0% {
+        transform: translateY(10%);
+      }
+
+      50% {
+        transform: translateY(0%);
+      }
+
+      100% {
+        transform: translateY(10%);
+      }
+    }
+
+    &:hover {
+      filter: invert(100%);
+      background-color: transparent;
+      border: 0.0625rem solid $black;
+    }
+  }
+
+  &__arrow {
+    width: 1.125rem;
+  }
+}
+
+.design {
+  & > img {
+    width: 95%;
+    margin: auto;
+  }
+}
+
+.profile {
+  width: 22.75rem;
+  height: 10.625rem;
+  border-radius: 0.4375rem;
+  transform: translate(20%, -50%);
+  background-color: $black;
+  padding: 1.25rem;
+  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+
+  &__container {
+    @include flex(flex, row, flex-start, center, 30px);
+
+    & > img {
+      width: 3.875rem;
+      border-radius: 50%;
+    }
+  }
+
+  &__profession {
+    color: $gray;
+  }
+
+  &__description {
+    font-size: 1.125rem;
+    font-weight: $weight-700;
+    line-height: 1.5rem;
+    font-family: $lora-font;
+    padding: 1.25rem 3.75rem 0 0;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  & p > a {
+    text-decoration: underline;
+  }
+}
+
+@media (width <= 800px) {
+  .header {
+    &__nav {
+      position: absolute;
+      z-index: 5;
+      top: 0;
+      left: 0;
+      min-height: 100vh;
+      width: 100%;
+      background-color: $black;
+      font-size: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease-in;
+
+      &.header__nav--active {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &__list {
+      @include flex(flex, column, center, center, 4.25rem);
+      padding-top: 15.625rem;
+    }
+
+    &__hamburguer {
+      display: block;
+      visibility: visible;
+    }
+
+    &__menu {
+      position: relative;
+      z-index: 10;
+    }
+  }
+}
+
+@media (width >= 1024px) {
+  .header {
+    padding: 1.5rem 2.75rem;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    padding: 8rem 2.5rem;
+  }
+
+  .principal {
+    align-self: start;
+
+    &__title {
+      font-size: 3rem;
+    }
+
+    &__description {
+      font-size: 1.5rem;
+      opacity: 0.7;
+      line-height: 1.875rem;
+      padding: 3.125rem 6.5625rem 3.125rem 0;
+    }
+  }
+
+  .profile {
+    transform: translate(60%, -50%);
+  }
+}

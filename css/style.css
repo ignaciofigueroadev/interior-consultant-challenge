@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2family=Crimson+Pro:wght@200&family=Lora:wght@500&family=Montserrat:wght@400;500;700&display=swap");
+body {
+  background-color: #181719;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  padding: 1.5rem 0.75rem;
+}
+.header__logo {
+  font-family: "Crimson Pro", serif;
+  font-weight: 200;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  border: 0.0625rem solid #fff;
+  padding: 0.5rem;
+  animation: color infinite 3s;
+}
+.header__hamburguer, .header__close {
+  filter: invert(100%);
+  width: 1.8125rem;
+  cursor: pointer;
+  display: none;
+  visibility: hidden;
+}
+.header__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6.25rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+.header__item {
+  transition: border-bottom 0.2s ease-out;
+  border: 6px solid transparent;
+}
+.header__item:hover {
+  border-bottom: 0.625rem solid rgba(255, 255, 255, 0.7);
+}
+
+.principal {
+  padding: 1.75rem 0.75rem;
+}
+.principal__title {
+  padding-bottom: 1.375rem;
+  font-family: "Lora", serif;
+  font-weight: 500;
+  font-size: 2.25rem;
+}
+.principal__description {
+  font-size: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  margin-right: 9.375rem;
+  line-height: 1.125rem;
+}
+.principal__btn {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 1rem 0.75rem;
+  margin-top: 1.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: #fff;
+  color: #181719;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid transparent;
+  transition: all 0.2s ease-out;
+  animation: float infinite 2s;
+}
+@keyframes float {
+  0% {
+    transform: translateY(10%);
+  }
+  50% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(10%);
+  }
+}
+.principal__btn:hover {
+  filter: invert(100%);
+  background-color: transparent;
+  border: 0.0625rem solid #181719;
+}
+.principal__arrow {
+  width: 1.125rem;
+}
+
+.design > img {
+  width: 95%;
+  margin: auto;
+}
+
+.profile {
+  width: 22.75rem;
+  height: 10.625rem;
+  border-radius: 0.4375rem;
+  transform: translate(20%, -50%);
+  background-color: #181719;
+  padding: 1.25rem;
+  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+}
+.profile__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+}
+.profile__container > img {
+  width: 3.875rem;
+  border-radius: 50%;
+}
+.profile__profession {
+  color: #828282;
+}
+.profile__description {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  font-family: "Lora", serif;
+  padding: 1.25rem 3.75rem 0 0;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+}
+footer p > a {
+  text-decoration: underline;
+}
+
+@media (width <= 800px) {
+  .header__nav {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #181719;
+    font-size: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease-in;
+  }
+  .header__nav.header__nav--active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .header__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4.25rem;
+    padding-top: 15.625rem;
+  }
+  .header__hamburguer {
+    display: block;
+    visibility: visible;
+  }
+  .header__menu {
+    position: relative;
+    z-index: 10;
+  }
+}
+@media (width >= 1024px) {
+  .header {
+    padding: 1.5rem 2.75rem;
+  }
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    padding: 8rem 2.5rem;
+  }
+  .principal {
+    align-self: start;
+  }
+  .principal__title {
+    font-size: 3rem;
+  }
+  .principal__description {
+    font-size: 1.5rem;
+    opacity: 0.7;
+    line-height: 1.875rem;
+    padding: 3.125rem 6.5625rem 3.125rem 0;
+  }
+  .profile {
+    transform: translate(60%, -50%);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
